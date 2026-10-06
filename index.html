@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's More Fun in the Philippines | Top 5 Destinations</title>
+    <style>
+        /* CSS Variables based on the vibrant vector art palette */
+        :root {
+            --ph-yellow: #FFD000;
+            --ph-teal: #00A896;
+            --ph-deep-teal: #028090;
+            --ph-sea-blue: #023E8A;
+            --ph-red: #E63946;
+            --ph-navy: #03045E;
+            --ph-terracotta: #A0522D;
+            --ph-bg: #E0F2F1;
+        }
+
+        /* Jeepney-Inspired Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 18px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--ph-navy);
+            border-left: 3px solid var(--ph-yellow);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--ph-sea-blue),
+                var(--ph-sea-blue) 10px,
+                var(--ph-red) 10px,
+                var(--ph-red) 20px,
+                var(--ph-yellow) 20px,
+                var(--ph-yellow) 30px
+            );
+            border: 2px solid #ffffff;
+            border-radius: 4px;
+        }
+
+        body {
+            font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--ph-bg);
+            /* Halftone micro-dot background pattern */
+            background-image: radial-gradient(var(--ph-teal) 0.75px, transparent 0.75px);
+            background-size: 12px 12px;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, var(--ph-sea-blue) 0%, var(--ph-teal) 60%, var(--ph-yellow) 100%);
+            color: white;
+            text-align: center;
+            padding: 3.5rem 1rem 2.5rem;
+            position: relative;
+            border-bottom: 8px solid var(--ph-yellow);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 0px var(--ph-navy);
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        header p {
+            font-size: 1.3rem;
+            color: var(--ph-yellow);
+            margin-top: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 0px var(--ph-navy);
+        }
+
+        /* Fiesta Banner Garlands */
+        .bunting-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.6rem;
+            margin-top: 15px;
+            letter-spacing: 8px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--ph-navy);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-bottom: 5px solid var(--ph-red);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li a {
+            display: block;
+            color: var(--ph-yellow);
+            padding: 1rem 1.4rem;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+        nav li a:hover {
+            background-color: var(--ph-red);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        main {
+            max-width: 1050px;
+            margin: 2.5rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Intro Box */
+        section#intro {
+            background: #ffffff;
+            padding: 2.2rem;
+            border-radius: 18px;
+            border: 4px solid var(--ph-navy);
+            box-shadow: 8px 8px 0px var(--ph-teal);
+            margin-bottom: 3rem;
+        }
+        section#intro h2 {
+            color: var(--ph-sea-blue);
+            margin-top: 0;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Vector Art-Inspired Destination Cards */
+        article {
+            margin-bottom: 3.5rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 4px solid var(--ph-navy);
+            box-shadow: 10px 10px 0px rgba(3, 4, 94, 0.2);
+            position: relative;
+        }
+
+        /* Unique Color Schemes per Destination Card */
+        article#boracay {
+            background: linear-gradient(180deg, #FFFFFF 0%, #E0F7FA 100%);
+            border-top: 12px solid var(--ph-teal);
+        }
+        article#mayon {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF3E0 100%);
+            border-top: 12px solid #E65100;
+        }
+        article#elyu {
+            background: linear-gradient(180deg, #FFFFFF 0%, #E8F5E9 100%);
+            border-top: 12px solid #2E7D32;
+        }
+        article#siargao {
+            background: linear-gradient(180deg, #FFFFFF 0%, #E1F5FE 100%);
+            border-top: 12px solid var(--ph-sea-blue);
+        }
+        article#chocolate-hills {
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5EFE6 100%);
+            border-top: 12px solid var(--ph-terracotta);
+        }
+
+        /* Header Banners for Destinations */
+        .destination-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px dashed var(--ph-navy);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        article h2 {
+            margin: 0;
+            font-size: 2.3rem;
+            color: var(--ph-navy);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .spot-badge {
+            background-color: var(--ph-red);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border: 2px solid var(--ph-navy);
+            box-shadow: 3px 3px 0px var(--ph-yellow);
+        }
+
+        /* Vector Grid Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+        .info-card {
+            background-color: #ffffff;
+            padding: 1.2rem;
+            border-radius: 14px;
+            border: 3px solid var(--ph-navy);
+            box-shadow: 4px 4px 0px var(--ph-yellow);
+        }
+        .info-card h3 {
+            margin-top: 0;
+            font-size: 1.15rem;
+            color: var(--ph-sea-blue);
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* Location Highlight Callout Box */
+        .location-callout {
+            background: var(--ph-yellow);
+            color: var(--ph-navy);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            border: 2px solid var(--ph-navy);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: inline-block;
+            box-shadow: 3px 3px 0px var(--ph-red);
+        }
+
+        /* Media Container styling */
+        .media-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 3px solid var(--ph-navy);
+            box-shadow: 5px 5px 0px var(--ph-teal);
+        }
+        .media-box {
+            flex: 1 1 300px;
+        }
+        .media-box h4 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: var(--ph-navy);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        iframe, audio {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid var(--ph-navy);
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ph-navy);
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 5rem;
+            border-top: 8px solid var(--ph-yellow);
+        }
+        footer p {
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>It's More Fun in the Philippines! 🇵🇭</h1>
+    <p>Discover breathtaking destinations, local food, traditions, and unforgettable activities.</p>
+    <div class="bunting-container">🚩 💙 💛 🔴 🚩 💙 💛 🔴 🚩</div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#boracay">Boracay</a></li>
+        <li><a href="#mayon">Mayon Volcano</a></li>
+        <li><a href="#elyu">La Union (Elyu)</a></li>
+        <li><a href="#siargao">Siargao</a></li>
+        <li><a href="#chocolate-hills">Chocolate Hills</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="intro">
+        <h2>Welcome to the Philippine Archipelago</h2>
+        <p>With 7,641 islands, the Philippines offers world-famous white beaches, majestic active volcanoes, surfing hotspots, unique geographical landscapes, and warm hospitality. Explore five top destinations below complete with their famous spots, dishes, cultural traditions, working YouTube videos & audio, and guides on how to book your trip.</p>
+    </section>
+
+    <!-- SPOT 1: BORACAY -->
+    <article id="boracay">
+        <div class="destination-banner">
+            <h2>1. Boracay Island, Aklan</h2>
+            <span class="spot-badge">🏝️ Tropical Paradise</span>
+        </div>
+        <div class="location-callout">📍 Location: Malay, Aklan Province, Western Visayas (Region VI)</div>
+        <p>Boracay is a world-renowned tropical island celebrated for its four-kilometer stretch of White Beach, turquoise waters, vibrant nightlife, and powder-fine sand.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Famous Spot</h3>
+                <p><strong>Willy's Rock</strong> & <strong>Puka Shell Beach</strong> — Iconic volcanic rock formations and quiet northern shores.</p>
+            </div>
+            <div class="info-card">
+                <h3>🍽️ Local Delicacies</h3>
+                <p><strong>Chori Burger</strong> (sweet chorizo patty on a grilled bun) and refreshing <strong>Calamansi Muffins</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🏄 Activities & Traditions</h3>
+                <p>Sunset Paraw sailing, scuba diving, cliff jumping at Ariel's Point, and witnessing the annual <strong>Ati-Atihan</strong> festive dance roots.</p>
+            </div>
+            <div class="info-card">
+                <h3>📞 How to Book & Contact</h3>
+                <p>Fly to Caticlan Airport (MPH). Register via the official Malay Tourism Portal or book through accredited hotels via <a href="https://www.philippines.travel" target="_blank">philippines.travel</a>.</p>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <div class="media-box">
+                <h4>🎥 Watch Boracay YouTube Travel Guide</h4>
+                <iframe height="200" src="https://www.youtube.com/embed/xQWD5BrMPbA" title="Boracay Travel Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="media-box">
+                <h4>🎵 Tropical Beach Acoustic Audio</h4>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </article>
+
+    <!-- SPOT 2: MAYON VOLCANO -->
+    <article id="mayon">
+        <div class="destination-banner">
+            <h2>2. Mayon Volcano, Albay (Bicol)</h2>
+            <span class="spot-badge">🌋 Majestic Cone</span>
+        </div>
+        <div class="location-callout">📍 Location: Albay Province, Bicol Region (Region V), Luzon</div>
+        <p>Standing at over 2,400 meters, Mayon Volcano is world-famous for its symmetrical cone shape and rich Bicolano heritage.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Famous Spot</h3>
+                <p><strong>Cagsawa Ruins</strong> — The historic 18th-century church belfry with Mayon in the backdrop, and <strong>Sumlang Lake</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🍽️ Local Delicacies</h3>
+                <p><strong>Bicol Express</strong> (pork cooked in chili and coconut milk), <strong>Laing</strong>, and spicy <strong>Sagoniton Chili Ice Cream</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🏄 Activities & Traditions</h3>
+                <p>Thrilling ATV lava-trail rides, ziplining, and celebrating the annual <strong>Magayon Festival</strong> honoring local folklore.</p>
+            </div>
+            <div class="info-card">
+                <h3>📞 How to Book & Contact</h3>
+                <p>Book Mayon ATV tours through official operators like Cagsawa ATV Adventures or via Klook / Albay Provincial Tourism (+63 956 563 1816).</p>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <div class="media-box">
+                <h4>🎥 Watch Albay Tourist Spots YouTube Video</h4>
+                <iframe height="200" src="https://www.youtube.com/embed/JS7pwdZcKFE" title="Albay Tourist Spots" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="media-box">
+                <h4>🎵 Bicolano Folk Atmosphere Audio</h4>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </article>
+
+    <!-- SPOT 3: ELYU -->
+    <article id="elyu">
+        <div class="destination-banner">
+            <h2>3. La Union (Elyu)</h2>
+            <span class="spot-badge">🌊 Surf Capital North</span>
+        </div>
+        <div class="location-callout">📍 Location: San Juan, La Union, Ilocos Region (Region I), Northwestern Luzon</div>
+        <p>La Union (Elyu) is a coastal haven that combines surf culture, artsy beachside cafes, and vibrant sunset gatherings.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Famous Spot</h3>
+                <p><strong>Mona Liza Point</strong> in San Juan for surfing, and the peaceful <strong>Tangadan Falls</strong> in San Gabriel.</p>
+            </div>
+            <div class="info-card">
+                <h3>🍽️ Local Delicacies</h3>
+                <p><strong>Ilocano Bagnet</strong>, <strong>Dinakdakan</strong>, and trendy surf-side coffee specialty brews.</p>
+            </div>
+            <div class="info-card">
+                <h3>🏄 Activities & Traditions</h3>
+                <p>Beginner-to-pro surfing lessons, beach volleyball, cafe hopping, and honoring coastal craft traditions.</p>
+            </div>
+            <div class="info-card">
+                <h3>📞 How to Book & Contact</h3>
+                <p>Drive 4–5 hours from Manila via TPLEX or take Partas Bus. Contact La Union Surf Club (LUSC) for lesson reservations.</p>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <div class="media-box">
+                <h4>🎥 Watch Elyu La Union Travel Vlog</h4>
+                <iframe height="200" src="https://www.youtube.com/embed/kG1dg82db84" title="Elyu La Union Travel Vlog" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="media-box">
+                <h4>🎵 Surf & Chill Acoustic Track</h4>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </article>
+
+    <!-- SPOT 4: SIARGAO -->
+    <article id="siargao">
+        <div class="destination-banner">
+            <h2>4. Siargao Island</h2>
+            <span class="spot-badge">🏄 Wave & Island Hub</span>
+        </div>
+        <div class="location-callout">📍 Location: Surigao del Norte, Caraga Region (Region XIII), Mindanao (Facing the Pacific Ocean)</div>
+        <p>Known as the Surfing Capital of the Philippines, Siargao is world-renowned for its teardrop shape, coconut tree forests, and natural rock pools.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Famous Spot</h3>
+                <p><strong>Cloud 9 Boardwalk</strong>, <strong>Magpupungko Rock Pools</strong>, and <strong>Sugba Lagoon</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🍽️ Local Delicacies</h3>
+                <p>Fresh seafood platters, <strong>Coconut Smoothie Bowls</strong>, and traditional <strong>Pan de Sayao</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🏄 Activities & Traditions</h3>
+                <p>Renting a scooter down Coconut Road, island hopping to Naked, Daku, and Guyam Islands, and attending local surf festivals.</p>
+            </div>
+            <div class="info-card">
+                <h3>📞 How to Book & Contact</h3>
+                <p>Fly directly to Sayak Airport (IAO). Contact Siargao Tourism Office or book land tours via local cooperative guides.</p>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <div class="media-box">
+                <h4>🎥 Watch Siargao Island YouTube Guide</h4>
+                <iframe height="200" src="https://www.youtube.com/embed/A5u1WEwccYQ" title="Siargao Island Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="media-box">
+                <h4>🎵 Island Groove Audio Track</h4>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </article>
+
+    <!-- SPOT 5: CHOCOLATE HILLS -->
+    <article id="chocolate-hills">
+        <div class="destination-banner">
+            <h2>5. Chocolate Hills, Bohol</h2>
+            <span class="spot-badge">⛰️ Natural Wonder</span>
+        </div>
+        <div class="location-callout">📍 Location: Bohol Province, Central Visayas (Region VII) — Mainly in Carmen, Batuan, and Sagbayan</div>
+        <p>A geological wonder consisting of over 1,200 symmetrical mounds that turn chocolate brown during the dry summer months.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Famous Spot</h3>
+                <p><strong>Carmen Observation Deck</strong> and the nearby <strong>Loboc River Cruise</strong> & <strong>Tarsier Sanctuary</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🍽️ Local Delicacies</h3>
+                <p><strong>Kalamay</strong> (sweet sticky rice dessert in coconut shell), <strong>Peanut Kisses</strong>, and <strong>Chorizo de Bohol</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>🏄 Activities & Traditions</h3>
+                <p>ATV riding around the base of the hills, zip-biking at Chocolate Hills Complex, and watching traditional <strong>Sandugo Festival</strong> re-enactments.</p>
+            </div>
+            <div class="info-card">
+                <h3>📞 How to Book & Contact</h3>
+                <p>Fly into Panglao International Airport (TAG). Book day tours through Bohol Provincial Tourism Office or accredited local agencies.</p>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <div class="media-box">
+                <h4>🎥 Watch Bohol Countryside Tour YouTube Video</h4>
+                <iframe height="200" src="https://www.youtube.com/embed/485ofIAj6go" title="Bohol Countryside Tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="media-box">
+                <h4>🎵 Visayan Folk Melodies Audio</h4>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <p>Media and research compiled for IT101 Semantic Webpage Lab.</p>
+    <p>Made with ❤️ for the Philippines &mdash; Group 3, IT101</p>
+</footer>
+
+</body>
+</html>
