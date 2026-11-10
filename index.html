@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Portfolio Lab 3</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fffbeb; /* Soft warm cream background */
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid #f59e0b;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.1);
+        }
+
+        .header h1 {
+            letter-spacing: 1.5px;
+            font-size: 1.8rem;
+            color: #78350f;
+        }
+
+        .highlight {
+            color: #d97706;
+            font-weight: 700;
+            background-color: #fef08a;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Main layout */
+        .main-area {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        /* Content */
+        .content {
+            flex: 2;
+            background: #ffffff;
+            border: 1px solid #fde68a;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .content > p {
+            color: #4b5563;
+            margin-top: 16px;
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid #fde68a;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar h3 {
+            color: #78350f;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 6px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            color: #d97706;
+            text-decoration: underline;
+        }
+
+        /* Profile card */
+        .profile-card {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            border: 2px dashed #fbbf24;
+            padding: 18px;
+            background: #fffdf5;
+            border-radius: 10px;
+        }
+
+        .profile-info h3 {
+            color: #78350f;
+            margin-bottom: 4px;
+        }
+
+        .profile-info p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #f59e0b;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Button */
+        .contact-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: #f59e0b;
+            color: #ffffff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .contact-btn:hover {
+            background: #d97706;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            padding: 12px;
+            font-size: 0.85rem;
+            color: #92400e;
+            border-top: 1px solid #fef3c7;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 700px) {
+            .main-area {
+                flex-direction: column;
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .avatar {
+                width: 88px;
+                height: 88px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>IT Portfolio <span class="highlight">Lab 3</span></h1>
+        </header>
+
+        <!-- Main Area (Flexbox Layout) -->
+        <div class="main-area">
+
+            <!-- Content (Left Column) -->
+            <main class="content">
+                
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <img src="https://www.google.com/imgres?q=images%20picture%20man&imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1391718981%2Fphoto%2Fportrait-of-a-confident-young-businessman-standing-with-his-arms-crossed-in-an-office.jpg%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3DeF_0QCtw-Y8Q2c4_xQe6KTkcSPiGCT6qBf6nuavE2Dg%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fprofessional-man-in-suit&docid=U2QkstUNxPNnKM&tbnid=JWv9ebRV526KKM&vet=12ahUKEwi359v_yvyXAxVVklYBHYgSDUwQnPAOegQIHxAA..i&w=612&h=408&hcb=2&ved=2ahUKEwi359v_yvyXAxVVklYBHYgSDUwQnPAOegQIHxAA" alt="Profile Avatar" class="avatar">
+                    <div class="profile-info">
+                        <h3>Rein Charles Tagala</h3>
+                        <p><strong>Role:</strong> BSIT Student & Developer</p>
+                        <p>Passionate about building modern web applications, exploring CSS layouts, and learning programming logic.</p>
+                        <button class="contact-btn">Contact Me</button>
+                    </div>
+                </div>
+
+                <p>Welcome to my portfolio lab! This page demonstrates the use of CSS, CSS Flexbox layouts, responsive design using media queries, and modular box styling.</p>
+
+            </main>
+
+            <!-- Sidebar (Right Column) -->
+            <aside class="sidebar">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </aside>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 — CSIT Lab</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
